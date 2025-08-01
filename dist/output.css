@@ -25,7 +25,6 @@
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
-    --breakpoint-lg: 64rem;
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
     --text-lg: 1.125rem;
@@ -377,9 +376,6 @@
   .w-full {
     width: 100%;
   }
-  .max-w-screen-lg {
-    max-width: var(--breakpoint-lg);
-  }
   .min-w-\[80\%\] {
     min-width: 80%;
   }
@@ -541,9 +537,6 @@
   .bg-gradient-to-r {
     --tw-gradient-position: to right in oklab;
     background-image: linear-gradient(var(--tw-gradient-stops));
-  }
-  .bg-\[url\(\'\.\.\/src\/assets\/images\/hero\.jpg\'\)\] {
-    background-image: url('../src/assets/images/hero.jpg');
   }
   .from-cyan-500 {
     --tw-gradient-from: var(--color-cyan-500);
@@ -739,12 +732,6 @@
   }
   .animation-delay-300 {
     animation-delay: calc(300 * 1ms);
-  }
-  .animation-delay-\[75ms\] {
-    animation-delay: 75ms;
-  }
-  .animation-delay-\[150ms\] {
-    animation-delay: 150ms;
   }
   .group-hover\:block {
     &:is(:where(.group):hover *) {
