@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&family=Headland+One&family=Quicksand:wght@300..700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap");
+@import "tailwindcss" source(none);
+@source "./";
+@theme {
+  --font-quicksand: "Quicksand", serif;
+  --animate-wavey: wavey 1000ms linear infinite;
+
+  @keyframes wavey {
+    0%,
+    100% {
+      transform: scaleY(0.5);
+    }
+    50% {
+      transform: scaleY(1.5);
+    }
+  }
+}
+@layer base {
+  body {
+    font-family: var(--font-quicksand);
+  }
+  h1 {
+    @apply text-6xl;
+  }
+  h2 {
+    @apply text-5xl;
+  }
+  h3 {
+    @apply text-4xl;
+  }
+  h4 {
+    @apply text-3xl;
+  }
+  h5 {
+    @apply text-2xl;
+  }
+  h6 {
+    @apply text-xl;
+  }
+}
+
+@utility animation-delay-* {
+  animation-delay: --value(--animation-delay- *);
+  animation-delay: calc(--value(integer) * 1ms);
+  animation-delay: --value([ *]);
+}
+
+@layer components {
+  .menu-item {
+    @apply relative flex h-full items-center p-4 font-bold text-pink-200 hover:text-zinc-200 hover:bg-white/10 transition-colors ease-in-out;
+  }
+}
+
+@custom-variant group-open {
+  &:is(:where(.group):is(.open, [open], :popover-open, :open) *) {
+    @slot;
+  }
+}
+
+@custom-variant peer-open {
+  &:is(:where(.peer):is(.open, [open], :popover-open, :open) ~ *) {
+    @slot;
+  }
+}
+
+@custom-variant dark (&:where(.dark, .dark *));

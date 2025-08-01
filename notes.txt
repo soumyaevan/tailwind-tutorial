@@ -1,0 +1,35 @@
+Tutorial -
+    1. npm install tailwindcss @tailwindcss/cli
+    2. Add the @import "tailwindcss"; import to your main CSS file.
+    3. In package.json, add the npm command - "tw:build": "npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css --watch"
+    4. Run the CLI tool to scan your source files for classes and build your CSS. -> npm run tw:build
+    5. It will create output.css in the dist folder
+    6. Add your compiled CSS file to the <head> and start using Tailwind’s utility classes to style your content.
+    7. to exclude un-necessary tailwind files, modify input.css ->
+        @import "tailwindcss" source(none);
+        @source "./";
+    8. <script defer src="./assets/fontawesome/js/fontawesome.min.js"></script> adding this header and mentioning defer keyword will ensure, the script file wil be loaded after the html document gets loaded
+    9. it has three layers 
+        - Base
+            - simple html components (h2, button, body etc..)
+        - Components 
+            - component classes created through tailwind (not recommended) (.btn, .third-party-lib etc...)
+        - Utilities
+            - Utility classes which imposes css styles (.txt-2xl, .bg-white etc...)
+        priority wise Utilities > Components > Base . Higher priority overrides lower ones when both applied to an element
+    10. to use a certain font family across the page, you need to add it in base layer
+        - implementation
+            @layer base {
+                body {
+                    font-family: "Quicksand", sans-serif;
+                }
+            }
+    11. to use a font family specific to element, not entire body, we need to use @theme
+        - implementation
+            @theme {
+                --font-quicksand: "Quicksand", sans-serif;
+            }
+         then we need to use font-quicksand in html class
+         there are predefined themes. we need to use them only
+    12. bg-white/10 - here /10 will add 10% opacity
+    13. components classes increase output css. so it is best practice to avoid them whenever usd react, vue etc. then we can use those framework components
